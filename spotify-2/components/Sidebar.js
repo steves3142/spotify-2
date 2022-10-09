@@ -18,7 +18,7 @@ function Sidebar() {
     useEffect(() => {
         if (spotifyApi.getAccessToken()) {
             spotifyApi.getUserPlaylists().then((data) => {
-                setPlaylists(data.body);
+                setPlaylists(data);
             });
         }
     }, [session, spotifyApi]);
@@ -71,21 +71,11 @@ function Sidebar() {
                 <hr className="border-t-[0.1px] border-gray-900"/>
 
                 {/* Playlists...*/}
-            
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
-                <p className="cursor-pointer hover:text-white">Playlist name...</p>
+                {playlists.map((playlist) => (
+                    <p key={playlist.id} className="cursor-pointer hover:text-white">
+                        {playlist.name}
+                    </p>
+                ))}
             </div>
         </div>
     );
