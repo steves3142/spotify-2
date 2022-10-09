@@ -18,7 +18,7 @@ function Center() {
     const [color, setColor] = useState(null);
 
     useEffect(() => {
-        setColor()
+        setColor(shuffle(colors).pop())
     }, [])
 
     return (
@@ -33,7 +33,7 @@ function Center() {
                     <ChevronDownIcon className="h-5 w-5" />
                 </div>
             </header>
-            <section className={`flex items-end space-x-7 bg-gradient-to-b to-black from-red-500 h-80 text-white padding-8`}>
+            <section className={`flex items-end space-x-7 bg-gradient-to-b to-black ${color} h-80 text-white padding-8`}>
                 <h1>hello</h1>
             </section>
         </div>
