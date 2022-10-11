@@ -18,7 +18,7 @@ function Sidebar() {
     useEffect(() => {
         if (spotifyApi.getAccessToken()) {
             spotifyApi.getUserPlaylists().then((data) => {
-                setPlaylists(data);
+                setPlaylists(data.body.items);
             });
         }
     }, [session, spotifyApi]);
