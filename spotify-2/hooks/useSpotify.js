@@ -12,10 +12,11 @@ function useSpotify() {
 
     useEffect(() => {
         if (session) {
+            // If reresh access token attempt fails, direct user to login..
             if (session.error === 'RefreshAccessTokenError') {
                 signIn(); 
             }
-            spotifyApi.setAccessToken(session.user.setAccessToken);
+            spotifyApi.setAccessToken(session.user.accessToken);
         }
     }, [session]);
 
