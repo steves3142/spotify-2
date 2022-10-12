@@ -6,7 +6,8 @@ module.exports = {
     "./pages/login.js",
     "./components/Center.js", 
     "./components/Song.js",
-    "./compnents/Songs.js",
+    "./components/Songs.js",
+    "./components/Player.js",
   ],
   theme: {
     extend: {},
